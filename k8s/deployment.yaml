@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dockermaster
+  labels:
+    app: dockermaster
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dockermaster
+  template:
+    metadata:
+      labels:
+        app: dockermaster
+    spec:
+      containers:
+        - name: dockermaster
+          image: ghcr.io/bixson/dockermaster:latest
+          ports:
+            - containerPort: 7681
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "100m"
+            limits:
+              memory: "128Mi"
+              cpu: "250m"

@@ -1,0 +1,7 @@
+.git
+.github
+.idea
+*.iml
+k8s
+README.md
+.DS_Store
